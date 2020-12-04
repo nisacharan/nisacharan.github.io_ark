@@ -1,0 +1,48 @@
+---
+---
+<!doctype html>
+<html>
+
+<head>
+  <title>
+    {{ site.title }}
+  </title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+</head>
+
+<body>
+  <main>
+    <section>
+      <header>
+        <h1>
+          {{ site.title }}
+        </h1>
+      </header>
+
+      <ul>
+
+
+        <!-- adding here -->
+        {% for algo in site.algos %}
+        <li>
+          <a href="{{ algo.url }}">
+            {{ algo.title }} 
+          </a>
+        </li>
+        {% endfor %}
+
+      </ul>
+
+
+
+    </section>
+  </main>
+
+  {% include footer.html %}
+</body>
+
+</html>
