@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      nisacharan
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  </head>
+  <body>
+    <main>
+      <header class="article">
+        <a class="title" href="/">
+          nisacharan
+        </a>
+      </header>
+      
+      <article>
+        <h1 id="notes-on-neural-networks--deep-learning">Notes on Neural Networks &amp; Deep Learning</h1>
+<p><strong>⚠️NOTE: This is a work in progress. Idea is to keep a note of concepts I find useful &amp; interesting while learning through various sources.</strong></p>
+
+<p><a href="#i.-definitions-&amp;-terminology">Part.1: Definitions &amp; Terminology</a></p>
+<ul>
+  <li><a href="#the-neuron">The Neuron</a></li>
+  <li><a href="#learning-algorithm">Learning Algorithm</a></li>
+  <li><a href="#the-sigmoid-neuron">The Sigmoid Neuron</a></li>
+  <li><a href="#neural-network-as-a-function">Neural Network as a Function</a></li>
+  <li><a href="#activation">Activation</a></li>
+  <li><a href="#cost-function-as-a-function">Cost Function as a Function</a></li>
+</ul>
+
+<p><a href="#ii.-gradient-descent">Part.2: Gradient Descent</a><br />
+<a href="#iii.-backprop">Part.3: BackProp</a></p>
+
+<h2 id="i-definitions--terminology">I. Definitions &amp; Terminology</h2>
+<h3 id="the-neuron">The Neuron</h3>
+<p>Neuron is a fundamental decision making machine. It uses weighted inputs &amp; some bias to make these “decisions”.<br />
+Weights impact how important each input is, while Bias impacts how easy it is to “<a href="#activation">fire</a>” a neuron. (More on this soon)
+<img src="/images/nndl/SmallChanges.svg" width="250" alt="Neuron with inputs, weights" /></p>
+
+<p>This is the simplest neuron we can imagine &amp; it’s called <strong>Perceptron</strong>.<br />
+For more complex &amp; subtle decision making, we need a <strong>network</strong> of these pieces.</p>
+
+<h3 id="learning-algorithm">Learning Algorithm</h3>
+<p>Neurons are seen as fundamental decision making machine so far, but turns out they can also be seen as fundamental computational units.<br />
+How? With the right combination of weights &amp; biases, we can make a neuron behave like a NAND Gate, which is a Universal Gate. 
+<img src="/images/nndl/NAND.svg" width="5000" alt="Neuron as NAND" />
+Ok, so what? It means we can create any elaborate logic, just by using a circuit NAND Gate &amp; thus just by using a simple network of neurons!</p>
+<blockquote>
+  <p>“It’s difficult to envision what you can create given powerful primitives. Almost everything you see on a screen sits on top of NAND gates;”<br />
+“Just like you can, technically speaking, build any program entirely out of NAND gates, you can equally build any program out of neural networks… and nobody funds NAND gates.”<br />
+-<a href="https://twitter.com/patio11/status/1334519288284258305?s=20">@patio11</a></p>
+</blockquote>
+
+<p>But it’s extremely difficult to keep track of so many weights &amp; biases of a circuit of neurons for every use case. That’s where <strong>learning algorithms</strong> help as they can automatically learn the right combination of weights &amp; biases for a given task.</p>
+
+<!-- <img src="/images/site/myavatar.svg" width="250" alt="" /> -->
+
+<h3 id="the-sigmoid-neuron">The Sigmoid Neuron</h3>
+<p>One problem with network of Perceptrons is, even with a network of those, they’re still binary.<br />
+What makes “learning” possible in neural networks is that - <em>small changes in weights &amp; biases causes small changes in output</em> . <br />
+<img src="/images/nndl/SmallChanges.svg" width="250" alt="neuural network + small changes" /></p>
+
+<p>This is not possible with Perceptron as it flips suddenly after inputs cross a certain point. What we need is a smoother transition.<br />
+Enter Sigmoid. <code class="highlighter-rouge">σ()</code></p>
+
+<p><img src="/images/nndl/Sigmoid.svg" width="6000" alt="sigmoid" /></p>
+
+<h3 id="neural-network-arrangement">Neural Network arrangement</h3>
+
+<p><img src="/images/nndl/Hidden.svg" width="4000" alt="network with input, hidden &amp; output layers" /></p>
+
+<h3 id="neural-network-as-a-function">Neural Network as a Function</h3>
+<ul>
+  <li>Input:</li>
+  <li>Parameters:</li>
+  <li>Output:</li>
+</ul>
+
+<h3 id="activation">Activation</h3>
+<ul>
+  <li>We call a neuron active when it’s “lit up!”</li>
+  <li>Activations of input layer depends on how input is encoded &amp; fed into the network<br />
+ Ex: In case of images, it’s pixel values.</li>
+  <li>Activations of output layer are effectively, the predictions/choices the network is making<br />
+ Ex: In case of a classifier network, it’s the class the network choses to put input into (cat or dog)</li>
+  <li>
+    <p>Activations of inner layers:</p>
+  </li>
+  <li>Activations of one layer decides activations in the next layer. How?
+    <ul>
+      <li>Find Weighted sum of all activations of previous layer</li>
+      <li>‘Squish’ the sum into a range between 0 &amp; 1.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="cost-function-as-a-function">Cost Function as a Function</h3>
+<p>wait, what’s a cost function?
+It gives us a number that shows how lame the model is. higher the cost, lamer the model</p>
+
+<ul>
+  <li>Input:</li>
+  <li>Parameters:</li>
+  <li>Output:</li>
+</ul>
+
+<h2 id="ii-gradient-descent">II. Gradient Descent</h2>
+<p>What’s the use of Gradient Descent ? 
+To find minima of cost function.</p>
+
+<p>Simple calculus of finding points where ∂C/∂w = 0 won’t work?<br />
+No, definitely not for function with potentially millions of parameters.</p>
+
+<p>How does Gradient Descent work ? 
+Start at a random point &amp; figure out next step that will lower the functions value.</p>
+
+<p>For a line function(1D)
+<img />
+Ok, but how?
+``</p>
+<ol>
+  <li>Find slope at a random initial point.</li>
+  <li>Move to the left if slope is +ve. Move to the right if slope is -ve.</li>
+  <li>Keep moving till we reach a point of 0 slope. That’s our minima! 
+``
+Pro Tip: If we can move with step sizes proportional to the slope, as the slope flattens out towards minimum the steps become smaller. This  helps to avoid over shooting off the minima.</li>
+</ol>
+
+<p>What if it’s a surface? (2D or more)
+We need direction &amp; magnitude to take the next step that decreases output most quickly.</p>
+
+<p>Direction = 
+because Gradient of a function gives direction of steepest ascent (#calculus)
+Length = 
+indicator of how steep the path is</p>
+
+<p>Sounds simple, but what’s the catch? 
+The minima we’re gonna reach is Local. It depends on the random initial point you started with.</p>
+
+<blockquote>
+  <p>All you need to remember is there exists a way to know what the downhill direction is &amp; how steep it is.</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- tangent at a point
+&lt;img&gt;
+- when there are 2 variables
+&lt;img&gt;
+- scale it to n variables
+&lt;img&gt;
+</code></pre>
+</div>
+
+<h2 id="iii-backprop">III. BackProp</h2>
+
+<h3 id="links">Links</h3>
+<ul>
+  <li>3Blue1Brown series on Neural Networks</li>
+  <li>Michael Nielson’s NNDL e-book</li>
+</ul>
+
+      </article>
+    </main>
+
+    <footer>
+  <time>
+    <!-- November 10, 2020 -->
+  </time>
+
+  <a href="http://www.twitter.com/nisacharan">
+    <img src="/images/site/twitter_handle_2.svg" width="150" alt="@nisacharan" />
+  </a>
+</footer>
+
+  </body>
+</html>

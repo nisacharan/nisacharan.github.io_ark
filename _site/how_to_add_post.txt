@@ -1,0 +1,2 @@
+u need to have the file in a folder which is included in config.yml's collections.
+this is how you link between posts,  [Link title]({{ site.baseurl }}{% link _randomfolder/path/iside/my_collections/withfilename/andextension %})
