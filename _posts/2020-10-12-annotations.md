@@ -1,6 +1,5 @@
 ---
 title: "Annotations"
-description: NYU East Asian Studies Department, MA Thesis Defense
 layout: pdf
 ---
 
