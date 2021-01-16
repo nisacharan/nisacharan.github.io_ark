@@ -7,7 +7,7 @@ body {
 body {
   background-color: #FFF;
   color: #444;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'P22 Da Vinci Forward',"Open Sans", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 62.5%;
   margin: 0;
   padding: 1.4rem;
@@ -182,7 +182,7 @@ main > article > p > img.image-left-align {
 main > article > p > code,
 main > article li > code {
   font-size: 1rem;
-  font-family: Courier, monospace;
+  font-family: 'P22 Da Vinci Forward',Courier, monospace;
   background-color: #EEE;
   border-radius: 4px;
   border: 1px solid #DDD;
@@ -223,7 +223,7 @@ main > article > blockquote {
 
 main > article > div > pre {
   font-size: 1.2rem;
-  font-family: Courier, monospace;
+  font-family: 'P22 Da Vinci Forward',Courier, monospace;
   background-color: #F0F0F0;
   border-radius: 4px;
   border: 1px solid #DDD;
